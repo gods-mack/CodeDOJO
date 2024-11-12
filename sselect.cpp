@@ -61,4 +61,18 @@ int main() {
     SQLULEN rowsFetched;
     SQLSetStmtAttr(hStmt, SQL_ATTR_ROWS_FETCHED_PTR, &rowsFetched, 0);
 
-    while ((ret = SQLFetch(hStmt)) != SQL_NO
+    while ((ret = SQLFetch(hStmt)) != SQL_NO_DATA) {
+        for (SQLULEN i = 0; i < rowsFetched; i++) {
+            printf("Row %lu: PNR_ID = %ld, Principle = %ld, SI_Total = %ld\n",
+                   i + 1, pnrIds[i], principles[i], siTotals[i]);
+        }
+    }
+
+    // Clean up
+    SQLFreeHandle(SQL_HANDLE_STMT, hStmt);
+    SQLDisconnect(hDbc);
+    SQLFreeHandle(SQL_HANDLE_DBC, hDbc);
+    SQLFreeHandle(SQL_HANDLE_ENV, hEnv);
+
+    return 0;
+}
