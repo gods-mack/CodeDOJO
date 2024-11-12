@@ -1,14 +1,14 @@
 # SQL_ATTR_ROW_ARRAY_SIZE and SQL_ATTR_PARAMSET_SIZE
 
-The attribute SQL_ATTR_PARAMSET_SIZE in ODBC is crucial when performing batch operations (like bulk inserts) because it defines how many sets of parameters will be processed in a single execution of SQLExecute.
+The attribute ```SQL_ATTR_PARAMSET_SIZE``` in ODBC is crucial when performing batch operations (like bulk inserts) because it defines how many sets of parameters will be processed in a single execution of SQLExecute.
 
 ## What Is ```SQL_ATTR_PARAMSET_SIZE?```
 Purpose: It specifies the number of parameter sets in your arrays that will be executed as a batch.
 Effect: When you set this attribute, ODBC understands that the bound arrays contain multiple rows of data, and SQLExecute should process all these rows in one call.
 
 ## How It Works Together with SQL_ATTR_ROW_ARRAY_SIZE
-```SQL_ATTR_ROW_ARRAY_SIZE```: Specifies the number of rows fetched in a single call to SQLFetch.
-```SQL_ATTR_PARAMSET_SIZE```: Specifies the number of parameter sets (i.e., rows) to insert in a single call to SQLExecute.
+- ```SQL_ATTR_ROW_ARRAY_SIZE```: Specifies the number of rows fetched in a single call to SQLFetch.
+- ```SQL_ATTR_PARAMSET_SIZE```: Specifies the number of parameter sets (i.e., rows) to insert in a single call to SQLExecute.
 
 ## When performing bulk inserts:
 
