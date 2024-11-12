@@ -23,10 +23,12 @@ Setting Attributes:
 Understanding ```SQL_ATTR_PARAMSET_SIZE```
 Let's say you have the following data:
 
-pnr_id	principle	si_total
-13	123	1000
-14	456	2000
-15	789	3000
+
+| pnr_id  | principle | si_total  |
+|----------|----------|----------|
+|  13    | 123  | 1000  |
+|  14    |  456   |2000  |
+| 15      | 345   | 3000 |
 You can insert these rows using batch execution by:
 
 Binding arrays for each column.
