@@ -19,7 +19,7 @@ Setting Attributes:
 - ```SQL_ATTR_PARAMSET_SIZE``` tells the driver how many rows of data are in those arrays.
 - ```SQL_ATTR_ROW_ARRAY_SIZE``` is used primarily for fetching data, not inserting.
 
-##Example:
+## Example:
 Understanding ```SQL_ATTR_PARAMSET_SIZE```
 Let's say you have the following data:
 
@@ -29,10 +29,19 @@ Let's say you have the following data:
 |  13    | 123  | 1000  |
 |  14    |  456   |2000  |
 | 15      | 345   | 3000 |
+
 You can insert these rows using batch execution by:
 
 Binding arrays for each column.
 Setting `SQL_ATTR_PARAMSET_SIZE` to 3 since you have three rows to insert.
+
+## Breakdown of What Happens:
+### Parameter Binding:
+   - Each parameter (i.e., pnr_ids, principles, and si_totals) is bound to an array containing 3 elements.
+### Setting 
+   - ```SQL_ATTR_PARAMSET_SIZE```: This tells the driver that there are 3 rows to insert.
+### Execution:
+   - When SQLExecute is called, the ODBC driver uses the bound arrays and inserts all 3 rows in a single operation.
 
 
 ## Benefits of Using SQL_ATTR_PARAMSET_SIZE
