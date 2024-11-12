@@ -14,9 +14,10 @@ Effect: When you set this attribute, ODBC understands that the bound arrays cont
 
 Parameter Binding: 
 You bind your data using arrays, where each element in the array corresponds to a value for a row.
+
 Setting Attributes:
-```SQL_ATTR_PARAMSET_SIZE``` tells the driver how many rows of data are in those arrays.
-```SQL_ATTR_ROW_ARRAY_SIZE``` is used primarily for fetching data, not inserting.
+- ```SQL_ATTR_PARAMSET_SIZE``` tells the driver how many rows of data are in those arrays.
+- ```SQL_ATTR_ROW_ARRAY_SIZE``` is used primarily for fetching data, not inserting.
 
 ##Example:
 Understanding ```SQL_ATTR_PARAMSET_SIZE```
